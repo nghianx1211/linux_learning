@@ -1,44 +1,44 @@
-name: auto Workflow
+# name: auto Workflow
 
-# Trigger workflow on manual dispatch
-on:
-  pull_request:
-    branches:
-      - main
+# # Trigger workflow on manual dispatch
+# on:
+#   pull_request:
+#     branches:
+#       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment }}
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     environment: ${{ github.event.inputs.environment }}
     
-    steps:
-    - uses: actions/checkout@v4
+#     steps:
+#     - uses: actions/checkout@v4
     
-    - name: Setup Project
-      run: |
-        echo "Setting up project..."
-        echo "Selected environment: ${{ github.event.inputs.environment }}"
-        echo "Version to deploy: ${{ github.event.inputs.version }}"
+#     - name: Setup Project
+#       run: |
+#         echo "Setting up project..."
+#         echo "Selected environment: ${{ github.event.inputs.environment }}"
+#         echo "Version to deploy: ${{ github.event.inputs.version }}"
     
-    - name: Build
-      run: |
-        echo "Building project..."
-        # Add your build commands here
+#     - name: Build
+#       run: |
+#         echo "Building project..."
+#         # Add your build commands here
     
-    - name: Test
-      run: |
-        echo "Running tests..."
-        # Add your test commands here
+#     - name: Test
+#       run: |
+#         echo "Running tests..."
+#         # Add your test commands here
     
-    - name: Deploy
-      run: |
-        echo "Deploying to ${{ github.event.inputs.environment }}..."
-        echo "Version: ${{ github.event.inputs.version }}"
-        echo "Notes: ${{ github.event.inputs.deploy_notes }}"
-        # Add your deployment commands here
+#     - name: Deploy
+#       run: |
+#         echo "Deploying to ${{ github.event.inputs.environment }}..."
+#         echo "Version: ${{ github.event.inputs.version }}"
+#         echo "Notes: ${{ github.event.inputs.deploy_notes }}"
+#         # Add your deployment commands here
     
-    - name: Notify Deployment Status
-      if: always()
-      run: |
-        echo "Deployment to ${{ github.event.inputs.environment }} completed"
-        # Add notification commands here
+#     - name: Notify Deployment Status
+#       if: always()
+#       run: |
+#         echo "Deployment to ${{ github.event.inputs.environment }} completed"
+#         # Add notification commands here
