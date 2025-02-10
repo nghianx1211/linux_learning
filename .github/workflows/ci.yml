@@ -2,9 +2,25 @@ name: Manual Workflow
 
 # Trigger workflow on manual dispatch
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+        - staging
+        - uat
+        - production
+      version:
+        description: 'Version to deploy'
+        required: true
+        type: string
+      deploy_notes:
+        description: 'Deployment notes'
+        required: false
+        type: string
 
 jobs:
   deploy:
