@@ -1,4 +1,4 @@
-name: auto Workflow
+name: Auto Workflow
 
 # Trigger workflow on manual dispatch
 on:
